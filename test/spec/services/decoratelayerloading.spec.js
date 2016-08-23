@@ -47,4 +47,15 @@ describe('DecorateLayerLoading test suite', function() {
     expect(lg_2.get('load_count')).toBe(0);
 
   });
+
+  it ('should increment layerLoadingCount also for Vector layers', function () {
+    var vectorSource = new ol.source.Vector({
+            format: new ol.format.GML()
+    });
+    var vectorLayer = new ol.layer.Vector({source: vectorSource});
+
+    decorateLayerLoading(vectorLayer, scope);
+
+    expect(vectorLayer.get('load_count')).toBe(0);
+  });
 });

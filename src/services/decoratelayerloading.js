@@ -70,6 +70,8 @@ ngeo.decorateLayerLoading = function(layer, $scope) {
     } else if (source instanceof ol.source.Image) {
       incrementEvents = ['imageloadstart'];
       decrementEvents = ['imageloadend', 'imageloaderror'];
+    } else if (source instanceof ol.source.Vector) {
+      // Do nothing
     } else {
       goog.asserts.fail('unsupported source type');
     }
